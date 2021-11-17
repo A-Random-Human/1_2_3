@@ -51,5 +51,3 @@ wn.onkeypress(on_drop, "a")
 
 wn.listen()
 wn.mainloop()
-
-#https://youtu.be/pal1QQLSN_Y
