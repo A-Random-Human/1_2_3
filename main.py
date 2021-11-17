@@ -10,6 +10,8 @@ wn.addshape(apple_image)
 wn.bgpic("background.gif")
 
 drawer = trtl.Turtle()
+drawer.penup()
+drawer.hideturtle()
 
 apple = trtl.Turtle()
 apple.penup()
@@ -29,12 +31,17 @@ draw_apple(apple)
 
 # This function takes care of font and color.
 def draw_an_A():
-  drawer.color("blue")
+  x2 = apple.xcor() - 35
+  y2 = apple.ycor() + 10
+  drawer.goto(x2, y2)
+  drawer.color("white")
   drawer.write("A", font=("Arial", 74, "bold")) 
 
-wn.onkeypress(draw_an_A, "a")
+def on_drop():
+  draw_an_A()
+  update_apple()
 
-wn.onkeypress(update_apple, "d")
+wn.onkeypress(on_drop, "a")
 
 wn.listen()
 wn.mainloop()
