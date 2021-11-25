@@ -11,170 +11,174 @@ wn.addshape(apple_image)
 wn.bgpic("background.gif")
 wn.tracer(True)
 
-drawer = trtl.Turtle()
-drawer.penup()
-drawer.hideturtle()
+letters = ['a','b','c','d','e','f','g','h','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-apple = trtl.Turtle()
-apple.penup()
-apple.speed(7)
+apples = []
+apple_letters = []
 
-apple_letter = 'a'
-
-letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+for z in range(5):
+  apples.append(trtl.Turtle())
+  apple_letters.append(rand.choice(letters))
 
 #-----functions-----
-
-def draw_apple(active_apple):
-  active_apple.shape(apple_image)
+def draw_apple(index):
+  apple_letters[index] = rand.choice(letters)
+  #Apple set up
+  apples[index].penup()
+  apples[index].speed(5)
+  apples[index].shape(apple_image)
+  wn.tracer(False)
+  #Sets Apple position
+  apples[index].setx (rand.randint(-150,150))
+  apples[index].sety (rand.randint(-15,145))
+  #Draws letter
+  apples[index].sety (apples[index].ycor()-35)
+  apples[index].color("white")
+  apples[index].write(apple_letters[index], align ="center", font=("Arial", 40, "bold")) 
+  apples[index].sety (apples[index].ycor()+35)
+  #Showing turtle, tracing, and updating
+  apples[index].showturtle()
+  wn.tracer(True)
   wn.update()
 
-def update_apple():
-  apple.goto(apple.xcor(),-150) 
+def on_drop(index):
+  apples[index].penup()
+  apples[index].clear()
+  apples[index].sety(-150)
+  apples[index].hideturtle()
+  draw_apple(index)
 
-#-----function calls-----
-
-
-# This function takes care of font and color.
-def draw_letter():
-  global apple_letter
-  x2 = apple.xcor() - 18
-  y2 = apple.ycor() + -37
-  drawer.goto(x2, y2)
-  drawer.color("white")
-  apple_letter = letters[rand.randint(0,25)]
-  drawer.write(apple_letter, font=("Arial", 40, "bold")) 
-
-def clear_screen():
-  apple.hideturtle()
-  drawer.clear()
-
-def reset_apple_position():
-  apple_x = rand.randint(-150,150)
-  apple_y = rand.randint(-15,145)
-  apple.goto(apple_x,apple_y)
-
-#Draw Apple for 1st time
-draw_apple(apple)
-draw_letter()
-apple.showturtle()
-
-def on_drop():
-  update_apple()
-  clear_screen()
-  reset_apple_position()
-  draw_apple(apple)
-  draw_letter()
-  apple.showturtle()
-  wn.update
-
-#Why is on-key press active for the whole program :'( i.e. if you allow x to make the apple drop, x can always make the apple drop. There's no way with on-key press to clear or disable that even if the apple_letter is not x anymore. The following below just feels wrong :(, but it has to be done for it to
+#Why is on-key press active for the whole program :'( i.e. if you allow x to make the apple drop, x can always make the apple drop. There's no way with on-key press to clear or disable that even if the apple_lette is not x anymore. The following below just feels wrong :(, but it has to be done for it to work.
 
 def a():
-  if apple_letter == 'a':
-    on_drop()
+  for i in range(5):
+    if apple_letters[i] == 'a':
+      on_drop(i)
 def b():
-  if apple_letter == 'b':
-    on_drop()
+  for i in range(5):
+    if apple_letters[i] == 'b':
+      on_drop(i)
 def c():
-  if apple_letter == 'c':
-    on_drop()
+  for i in range(5):
+    if apple_letters[i] == 'c':
+      on_drop(i)
 def d():
-  if apple_letter == 'd':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'd':
+     on_drop(i)
 def e():
-  if apple_letter == 'e':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'e':
+      on_drop(i)
 def f():
-  if apple_letter == 'f':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'f':
+     on_drop(i)
 def g():
-  if apple_letter == 'g':
-    on_drop()
+  for i in range(5):
+    if apple_letters[i] == 'g':
+     on_drop(i)
 def h():
-  if apple_letter == 'h':
-    on_drop()
-def i():
-  if apple_letter == 'i':
-    on_drop()
+  for i in range(5):
+    if apple_letters[i] == 'h':
+      on_drop(i)
 def j():
-  if apple_letter == 'j':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'j':
+      on_drop(i)
 def k():
-  if apple_letter == 'k':
-    on_drop()
+  for i in range(5):
+    if apple_letters[i] == 'k':
+      on_drop(i)
 def l():
-  if apple_letter == 'l':
-    on_drop()
+  for i in range(5):
+    if apple_letters[i] == 'l':
+     on_drop(i)
 def m():
-  if apple_letter == 'm':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'm':
+     on_drop(i)
 def n():
-  if apple_letter == 'n':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'n':
+     on_drop(i)
 def o():
-  if apple_letter == 'o':
-    on_drop()
+  for i in range(5):
+    if apple_letters[i] == 'o':
+      on_drop(i)
 def p():
-  if apple_letter == 'p':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'p':
+      on_drop(i)
 def q():
-  if apple_letter == 'q':
-    on_drop()
+  for i in range(5):
+    if apple_letters[i] == 'q':
+     on_drop(i)
 def r():
-  if apple_letter == 'r':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'r':
+     on_drop(i)
 def s():
-  if apple_letter == 's':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 's':
+      on_drop(i)
 def t():
-  if apple_letter == 't':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 't':
+      on_drop(i)
 def u():
-  if apple_letter == 'u':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'u':
+      on_drop(i)
 def v():
-  if apple_letter == 'v':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'v':
+     on_drop(i)
 def w():
-  if apple_letter == 'w':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'w':
+      on_drop(i)
 def x():
-  if apple_letter == 'x':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'x':
+     on_drop(i)
 def y():
-  if apple_letter == 'y':
-    on_drop()
+  for i in range(5):
+    if apple_letters[i] == 'y':
+      on_drop(i)
 def z():
-  if apple_letter == 'z':
-    on_drop()
+  for i in range(5):
+   if apple_letters[i] == 'z':
+     on_drop(i)
+
+for i in range(5):
+  draw_apple(i)
 
 wn.onkeypress(a,'a')
 wn.onkeypress(b,'b')
-wn.onkeypress(c, 'c')
-wn.onkeypress(d, 'd')
-wn.onkeypress(e, 'e')
-wn.onkeypress(f, 'f')
-wn.onkeypress(g, 'g')
-wn.onkeypress(h, 'h')
-wn.onkeypress(i, 'i')
-wn.onkeypress(j, 'j')
-wn.onkeypress(k, 'k')
-wn.onkeypress(l, 'l')
-wn.onkeypress(m, 'm')
-wn.onkeypress(n, 'n')
-wn.onkeypress(o, 'o')
-wn.onkeypress(p, 'p')
-wn.onkeypress(q, 'q')
-wn.onkeypress(r, 'r')
-wn.onkeypress(s, 's')
-wn.onkeypress(t, 't')
-wn.onkeypress(u, 'u')
-wn.onkeypress(v, 'v')
-wn.onkeypress(w, 'w')
-wn.onkeypress(x, 'x')
-wn.onkeypress(y, 'y')
-wn.onkeypress(z, 'z')
+wn.onkeypress(c,'c')
+wn.onkeypress(d,'d')
+wn.onkeypress(e,'e')
+wn.onkeypress(f,'f')
+wn.onkeypress(g,'g')
+wn.onkeypress(h,'h')
+wn.onkeypress(j,'j')
+wn.onkeypress(k,'k')
+wn.onkeypress(l,'l')
+wn.onkeypress(m,'m')
+wn.onkeypress(n,'n')
+wn.onkeypress(o,'o')
+wn.onkeypress(p,'p')
+wn.onkeypress(q,'q')
+wn.onkeypress(r,'r')
+wn.onkeypress(s,'s')
+wn.onkeypress(t,'t')
+wn.onkeypress(u,'u')
+wn.onkeypress(v,'v')
+wn.onkeypress(w,'w')
+wn.onkeypress(x,'x')
+wn.onkeypress(y,'y')
+wn.onkeypress(z,'z')
 
 wn.listen()
 wn.mainloop()
