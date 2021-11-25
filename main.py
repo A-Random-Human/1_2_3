@@ -48,7 +48,9 @@ def on_drop(index):
   apples[index].hideturtle()
   draw_apple(index)
 
-#Why is on-key press active for the whole program :'( i.e. if you allow x to make the apple drop, x can always make the apple drop. There's no way with on-key press to clear or disable that even if the apple_lette is not x anymore. The following below just feels wrong :(, but it has to be done for it to work.
+#Why is on-key press active for the whole program :'( i.e. if you allow x to make the apple drop, x can always make the apple drop. 
+#There's no way with on-key press to clear or disable that even if the apple_letter is not x anymore. 
+#The following below just feels wrong :(, but it has to be done for it to work.
 
 def a():
   for i in range(5):
